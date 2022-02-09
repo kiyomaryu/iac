@@ -1,4 +1,4 @@
 # GCSのバケット名
-bucket = "terraform-sample2"
+bucket = "kymr-terraform"
 # GCSのprefix
 prefix  = "state"
