@@ -15,7 +15,7 @@ $ gcloud auth application-default login
 
 # バケットの作成
 # バケット名はURIになるためユニークなものでは無いとだめ。既に他のユーザが使っているものがある場合は403エラーで作成できない
-$ gsutil mb gs://{バケット名}
+$ gsutil mb -c Standard -l us-east1 gs://{バケット名}
 ```
 
 ### Procedure
