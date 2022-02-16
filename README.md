@@ -44,5 +44,11 @@ $ packer build -var "stage=dev" -var "gcp_project=GCPのプロジェクトID" pa
 ```
 ## Note
 
+### KnowHow
+- [Ansibleにおける変数の優先順位](https://docs.ansible.com/ansible/2.9_ja/user_guide/playbooks_variables.html#ansible-variable-precedence)
+  - Ansible実践ガイドのP104にも掲載
+- [Ansibleの設定ベストプラクティス](https://docs.ansible.com/ansible/2.9_ja/user_guide/playbooks_best_practices.html#playbooks-best-practices)
+
+### Link
 - [参考サイト](https://tech.visasq.com/restart-gcp-infrastructure-as-code1/)
 - [試行錯誤の調査ログ](https://twitter.com/kiyomaryu/status/1490858345791516674?s=20&t=IDtbVvAfb4qp2XEpJpgIQg)
