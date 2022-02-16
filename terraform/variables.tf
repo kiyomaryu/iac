@@ -1,7 +1,6 @@
 variable "project" {
   type        = string
-  // ここにプロジェクトIDを入れる
-  default     = ""
+  default     = "ここにGCPのプロジェクトIDをいれる"
   description = "GCP project id"
 }
 
@@ -19,6 +18,5 @@ variable "region" {
 
 variable "zone" {
   type = string
-  # default = "us-central1-c"
   default = "us-west1-b"
 }
