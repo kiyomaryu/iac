@@ -1,0 +1,36 @@
+{
+    "variables": {
+      "stage": "dev",
+      "version": "v1"
+    },
+    "builders": [
+      {
+        "type": "googlecompute",
+        "account_file": "secrets/gcp-key-ansible-sa.json",
+        "project_id": "GCPのプロジェクトIDを指定",
+        "source_image": "centos-7-v20200420",
+        "network": "default",
+        "disk_size": "20",
+        "ssh_username": "packer",
+        "ssh_port": 22,
+        "zone": "us-west1-b",
+        "image_name": "sample-image-{{user `stage`}}-{{user `version`}}",
+        "image_description": "Compute Engineの説明",
+        "image_family": "sample-image-centos7",
+        "machine_type": "e2-micro"
+      }
+    ],
+    "provisioners": [
+      {
+        "type": "ansible",
+        "ansible_env_vars": [ "ANSIBLE_CONFIG=ansible.cfg"],
+        "extra_arguments": [
+          "-v",
+          "--extra-vars",
+          "resource_stage={{ user `stage`}} gcp_project={{ user `gcp_project` }}"
+        ],
+        "user": "packer",
+        "playbook_file": "site.yml"
+      }
+    ]
+  }

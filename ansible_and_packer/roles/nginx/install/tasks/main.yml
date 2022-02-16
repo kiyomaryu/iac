@@ -1,0 +1,10 @@
+- name: Install nginx
+  become: yes
+  # Python3ではyum moduleが動作しないのでこのような形でyum moduleを使うときはansibleが実行するPythonをpython2に向けています。
+  vars:
+    ansible_python_interpreter: /usr/bin/python
+  yum:
+    name: nginx
+    state: present
+  notify: Start nginx
+  when: "ansible_os_family == 'RedHat'"

@@ -1,0 +1,7 @@
+- name: Start nginx
+  become: yes
+  systemd:
+    name: nginx
+    daemon_reload: "{{ nginx_daemon_reload }}"
+    state: started
+    enabled: yes

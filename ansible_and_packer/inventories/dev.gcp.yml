@@ -1,0 +1,12 @@
+plugin: gcp_compute
+projects: "GCPのプロジェクトIDを入れる"
+regions:
+  - us-west1-b
+filters: []
+
+# ansibleの実行ユーザーはサービスアカウント
+auth_kind: serviceaccount
+service_account_file: secrets/gcp-key-ansible-sa.json
+keyed_groups:
+  - prefix: gcp
+    key: labels

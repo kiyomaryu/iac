@@ -1,0 +1,7 @@
+- name: Playbook
+  hosts:
+    - "gcp_service_type_web"
+  vars_files:
+    - "group_vars/all"
+  roles:
+    - nginx/install/
