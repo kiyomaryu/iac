@@ -20,6 +20,7 @@ $ gsutil mb -c Standard -l us-east1 gs://{バケット名}
 
 ### Procedure
 
+#### terraform
 ```bash
 # Terraformのバックエンドを開発環境用の定義に変更
 $ terraform init -reconfigure -backend-config=backends/dev.tfvars
@@ -28,6 +29,20 @@ $ terraform init -reconfigure -backend-config=backends/dev.tfvars
 $ terraform apply -var-file=vars/dev.tfvars
 ```
 
+#### ansible
+
+```bash
+# sa_123456789はダミーであるためプロビジョニング用にGCPで作成したアカウントで行うこと
+$ ansible-playbook --inventory=inventories/dev.gcp.yml --private-key secrets/ssh-key-ansible-sa --user sa_123456789 site.yml --diff --check
+```
+
+#### packer
+
+```bash
+# packerの実行
+$ packer build -var "stage=dev" -var "gcp_project=GCPのプロジェクトID" packer.template.json
+```
 ## Note
 
 - [参考サイト](https://tech.visasq.com/restart-gcp-infrastructure-as-code1/)
+- [試行錯誤の調査ログ](https://twitter.com/kiyomaryu/status/1490858345791516674?s=20&t=IDtbVvAfb4qp2XEpJpgIQg)
