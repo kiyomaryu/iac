@@ -8,7 +8,7 @@ resource "google_compute_instance" "instance" {
 
   boot_disk {
     initialize_params {
-      image = "ubuntu-2004-focal-v20220118"
+      image = "centos-7-v20200403"
     }
   }
 
